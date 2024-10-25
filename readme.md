@@ -1,4 +1,4 @@
-Файл temp_statisctics.go:
+temp_statisctics.go:
     https://contest.yandex.ru/contest/69009/problems/A/
 
     Условие
