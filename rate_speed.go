@@ -38,8 +38,8 @@ func createFloatMap(n int) map[int]float64 {
 	return m
 }
 
-func main() {
-	n := 50000000
+func rate_speed() {
+	n := 500000000
 	intMap := createIntMap(n)
 	start := time.Now()
 	sumInt := sumIntMap(intMap)
