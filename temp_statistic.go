@@ -10,32 +10,38 @@ import (
 
 func logic() {
 	sc := bufio.NewScanner(os.Stdin)
+	temperatures := make(map[int]int)
+	var sumTemp int
+	count := 0
 	for sc.Scan() {
 		input := sc.Text()
 		args := strings.Fields(input)
 		switch args[0] {
 		case "+":
-			operator := args[0]
 			id, _ := strconv.Atoi(args[1])
-			temperature, _ := strconv.ParseFloat(args[2], 64)
-			fmt.Printf("Плюсик: %s, айди: %d, температура: %f\n", operator, id, temperature)
+			temperature, _ := strconv.Atoi(strings.ReplaceAll(args[2], ".", ""))
+			temperatures[id] = temperature
+			count++
+			sumTemp += temperature
 
 		case "-":
-			operator := args[0]
 			id, _ := strconv.Atoi(args[1])
-			fmt.Printf("Минусик: %s, айди: %d\n", operator, id)
+			sumTemp -= temperatures[id]
+			count--
+			delete(temperatures, id)
 
 		case "~":
-			operator := args[0]
 			id, _ := strconv.Atoi(args[1])
-			fmt.Printf("Тильда: %s, айди: %d\n", operator, id)
+			temperature, _ := strconv.Atoi(strings.ReplaceAll(args[2], ".", ""))
+
+			sumTemp = sumTemp - temperatures[id] + temperature
+			temperatures[id] = temperature
 
 		case "?":
-			fmt.Printf("Вопросик: %s\n", args[0])
+			fmt.Printf("%.9f \n", float64(sumTemp)/float64(count)/10.0)
 
 		case "!":
-			fmt.Printf("Восклицательный значок: %s\n", args[0])
-
+			return
 		}
 	}
 }
