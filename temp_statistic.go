@@ -3,13 +3,11 @@ package main
 import (
 	"bufio"
 	"fmt"
-	"os"
 	"strconv"
 	"strings"
 )
 
-func logic() {
-	sc := bufio.NewScanner(os.Stdin)
+func find_avg_temp(sc *bufio.Scanner) {
 	temperatures := make(map[int]int)
 	var sumTemp int
 	count := 0
@@ -44,8 +42,4 @@ func logic() {
 			return
 		}
 	}
-}
-
-func main() {
-	logic()
 }
