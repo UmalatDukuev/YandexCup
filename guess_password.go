@@ -36,7 +36,9 @@ func guess_password(sc *bufio.Scanner) {
 
 		for  i := 0; i < m; i++{
 			for k := 0; k < 22; k++{
-				if sum += x[j]*k
+				if sum += x[j]*k{
+					fmt.Println(1)
+				}
 			}
 		}
 		
