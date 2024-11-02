@@ -17,4 +17,5 @@ func main() {
 	for i, value := range elements {
 		a[i], _ = strconv.Atoi(value)
 	}
+
 }
